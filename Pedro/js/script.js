@@ -1,4 +1,4 @@
-import { getConfig } from './Pedro/config/config.js';
+import { getConfig } from '../config/config.js';
 // Reemplaza 'TU_API_KEY' con tu API key real de TMDB
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -12,14 +12,10 @@ const nextButton = document.querySelector('.next');
 
 async function fetchPopularMovies() {
     //const LOCAL_API_KEY = "";
-    const  LOCAL_API_KEY = getConfig();
+    const  LOCAL_API_KEY = await getConfig();
     // Si getConfig no funciona poner directamente la API_KEY
     //const LOCAL_API_KEY = "";
     
-    // Add 3 second delay
-    await new Promise(resolve => setTimeout(resolve, 3000));
-    
-    console.log("script.js LOCAL_API_KEY:", LOCAL_API_KEY);
     try {
         const response = await fetch(
             `${BASE_URL}/movie/popular?api_key=${LOCAL_API_KEY}&language=es-ES`
