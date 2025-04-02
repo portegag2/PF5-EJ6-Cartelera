@@ -22,6 +22,7 @@ Herramientas:
   Taiga: https://tree.taiga.io/project/davlland-cartelera/timeline
   penPot:
   API The Movie Database.org: (cada uno con su propia API-KEY)
+  Documentacion: /documentacion
 Reflexiones:
     ¿Qué hemos logrado?
     ¿Cómo lo hemos hecho?
@@ -33,3 +34,17 @@ Reflexiones:
     ¿Qué debemos hacer mejor?
     ¿Qué debemos dejar de hacer?
     ¿Qué hemos aprendido?
+
+Formato Historias de Usuario:
+    Id: Cod/Nombre
+    Quien?: Quien lo solicita, quien lo usará
+    Qué?: Qué se necesita, qué se quiere hacer
+    Por qué?: Por qué se necesita, por qué se quiere hacer, para obtener qué.
+    Requisitos: Requisitos que se necesitan para llevar a cabo la historia de usuario.
+    Criterios de aceptación: Qué se necesita para que la historia de usuario esté completa.
+    Tareas: Qué tareas se necesitan para llevar a cabo la historia de usuario.
+    Estimación: Estimación de tiempo que se necesita para llevar a cabo la historia de usuario.
+    Estado: Estado de la historia de usuario (pendiente, en progreso, finalizada).
+    Fecha de entrega: Fecha de entrega de la historia de usuario.
+    Fecha de entrega real: Fecha de entrega real de la historia de usuario.
+    Fecha de entrega final: Fecha de entrega final de la historia de usuario.
