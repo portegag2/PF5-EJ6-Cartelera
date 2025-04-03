@@ -1,18 +1,14 @@
 import { getConfig } from './apiConexion.js';
 
-console.log("apiMetodos inicio");
 // Reemplaza 'TU_API_KEY' con tu API key real de TMDB
-const BASE_URL = 'https://api.themoviedb.org/3';
-const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
+export const BASE_URL = 'https://api.themoviedb.org/3';
+export const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
-let currentPosition = 0;
-const carouselElement = document.querySelector('.carousel');
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
+
 
 //let API_KEY = await getConfig();
 
-async function fetchPopularMovies() {
+export async function fetchPopularMovies() {
     //const LOCAL_API_KEY = "915966e619bc1bab9238399ad1fe6e90";
     console.log("fetchPopularMovies inicio");
     const  LOCAL_API_KEY = await getConfig();
@@ -31,39 +27,3 @@ async function fetchPopularMovies() {
         return [];
     }
 }
-
-function createMovieCard(movie) {
-    return `
-        <div class="movie-card">
-            <img src="${IMAGE_BASE_URL}${movie.poster_path}" alt="${movie.title}">
-            <div class="movie-info">
-                <h3 class="movie-title">${movie.title}</h3>
-            </div>
-        </div>
-    `;
-}
-
-function moveCarousel(direction) {
-    const cards = document.querySelectorAll('.movie-card');
-    const cardWidth = cards[0].offsetWidth + 20; // Including margin
-    const maxPosition = -(cards.length - 4) * cardWidth;
-    
-    if (direction === 'next') {
-        currentPosition = Math.max(currentPosition - cardWidth, maxPosition);
-    } else {
-        currentPosition = Math.min(currentPosition + cardWidth, 0);
-    }
-    
-    carouselElement.style.transform = `translateX(${currentPosition}px)`;
-}
-
-async function initCarousel() {
-    const movies = await fetchPopularMovies();
-    const movieCards = movies.map(createMovieCard).join('');
-    carouselElement.innerHTML = movieCards;
-    
-    prevButton.addEventListener('click', () => moveCarousel('prev'));
-    nextButton.addEventListener('click', () => moveCarousel('next'));
-}
-
-initCarousel();
