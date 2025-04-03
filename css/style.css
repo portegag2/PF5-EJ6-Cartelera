@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+:root {
+  --primary-color: #22254b;
+  --secondary-color: #373b69;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-color);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+header {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--secondary-color);
+}
+
+.search {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: #fff;
+}
+
+.search::placeholder {
+  color: #7378c5;
+}
+
+.search:focus {
+  outline: none;
+  background-color: var(--primary-color);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Carrusel para las películas trending */
+.trending-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 6rem; /* Aumentar el espacio entre las películas */
+  padding: 1rem;
+  width: 100%;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; /* Habilitar snap para centrar las películas */
+  justify-content: center; /* Centrar las películas */
+  align-items: center; /* Alinear verticalmente */
+  margin: 0 auto; /* Centrar el carrusel */
+}
+
+/* Estilo para las películas en el carrusel */
+.trending-carousel::-webkit-scrollbar {
+  display: none; /* Ocultar scrollbar */
+}
+
+.trending-movie {
+  flex: 0 0 80%; /* Cada película ocupa el 80% del ancho del carrusel */
+  max-width: 400px; /* Limitar el ancho máximo */
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  scroll-snap-align: center; /* Asegurar que cada película se centre al desplazarse */
+}
+
+.trending-movie:hover .overview {
+  transform: translateY(0);
+}
+
+.trending-movie img {
+  width: 100%;
+  max-height: 800px;
+  object-fit: cover;
+}
+
+.trending-movie .movie-info {
+  color: #eee;
+  padding: 1rem;
+}
+
+.trending-movie .overview {
+  background-color: #fff;
+  padding: 1rem;
+  color: #333;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  max-height: 100%;
+  transform: translateY(101%);
+  overflow-y: auto;
+  transition: transform 0.3s ease-in;
+  z-index: 10; /* Asegurar que el overview esté por encima */
+}
+
+.trending-movie:hover .overview {
+  transform: translateY(0);
+}
+
+/* Estilo para las demás películas */
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.movie {
+  width: 300px;
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.movie img {
+  width: 100%;
+}
+
+.movie-info {
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.2rem;
+  padding: 0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
+}
+
+.movie-info h3 {
+  margin-top: 0;
+}
+
+.movie-info span {
+  background-color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.movie-info span.green {
+  color: lightgreen;
+}
+
+.movie-info span.orange {
+  color: orange;
+}
+
+.movie-info span.red {
+  color: red;
+}
+
+.overview {
+  background-color: #fff;
+  padding: 2rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  max-height: 100%;
+  transform: translateY(101%);
+  overflow-y: auto;
+  transition: transform 0.3s ease-in;
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
+}
+
+/* Carrusel para las películas */
+.movie-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+.movie-carousel::-webkit-scrollbar {
+  display: none; /* Ocultar scrollbar */
+}
+
+.movie {
+  flex: 0 0 300px; /* Cada película ocupa un ancho fijo */
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.movie img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
